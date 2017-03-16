@@ -43,7 +43,7 @@ public class Government implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Government other = (Government) obj;
+		Government other = (Government) obj;//
 		if (id != other.id)
 			return false;
 		return true;
