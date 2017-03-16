@@ -11,7 +11,7 @@ public class Animal_Shelter implements Serializable {
 	private String resources;
 	private Float capital;
 	
-	
+	private String goverment;
 	
 	public int getId() {
 		return id;

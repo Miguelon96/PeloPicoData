@@ -10,6 +10,9 @@ public class Location implements Serializable {
 	private int id;
 	private Float size;
 	private String name;
+	
+	private List <Population> population = new ArrayList <>();
+	
 	public int getId() {
 		return id;
 	}
