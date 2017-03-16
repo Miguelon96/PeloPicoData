@@ -1,18 +1,18 @@
 package peloPicoData.db.pojos;
 
+import java.util.*;
 import java.io.Serializable;
 
 public class Animal_Shelter implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -9120932944920683129L;
 	
 	
 	private int id;
 	private String resources;
 	private Float capital;
+	
+	
+	
 	public int getId() {
 		return id;
 	}

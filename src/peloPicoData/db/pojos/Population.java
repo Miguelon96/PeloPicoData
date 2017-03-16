@@ -1,13 +1,10 @@
 package peloPicoData.db.pojos;
 
+import java.util.*;
 import java.io.Serializable;
 
 public class Population implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -3874478801872297512L;
 	
 	
 	private int id;

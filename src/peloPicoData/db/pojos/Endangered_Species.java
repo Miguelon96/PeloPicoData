@@ -1,14 +1,10 @@
 package peloPicoData.db.pojos;
 
+import java.util.*;
 import java.io.Serializable;
 
 public class Endangered_Species implements Serializable {
 
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 4739490472590563154L;
 	
 	//ATRIBUTES
 	private int id;
@@ -17,11 +13,14 @@ public class Endangered_Species implements Serializable {
 	private String diet;
 	private String reproduction;
 	
+	private List <Population> population = new ArrayList <>();
+	
 	//CONSTRUCTORS
 		public Endangered_Species(){
 			super();
 		}
 
+		
 		public int getId() {
 			return id;
 		}

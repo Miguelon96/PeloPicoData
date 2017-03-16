@@ -1,14 +1,12 @@
 package peloPicoData.db.pojos;
 
+import java.util.*;
 import java.io.Serializable;
 
 public class Habitat implements Serializable {
 
 		
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6145394415937034535L;
+	
 	
 	
 	private int id;
