@@ -1,13 +1,11 @@
 package peloPicoData.db.pojos;
 
+import java.util.*;
 import java.io.Serializable;
 
 public class Government implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5435134538631927199L;
+	
 	
 	private int id;
 	private String type;
@@ -50,7 +48,5 @@ public class Government implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
 	
 }

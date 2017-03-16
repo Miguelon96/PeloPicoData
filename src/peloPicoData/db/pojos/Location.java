@@ -1,13 +1,11 @@
 package peloPicoData.db.pojos;
 
+import java.util.*;
 import java.io.Serializable;
 
 public class Location implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 9155640009252353650L;
+
 	
 	private int id;
 	private Float size;
