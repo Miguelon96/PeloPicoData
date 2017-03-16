@@ -14,6 +14,7 @@ public class Endangered_Species implements Serializable {
 	private String reproduction;
 	
 	private List <Population> population = new ArrayList <>();
+	private String Endangered_Species;  
 	
 	//CONSTRUCTORS
 		public Endangered_Species(){
