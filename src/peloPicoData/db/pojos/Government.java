@@ -9,8 +9,7 @@ public class Government implements Serializable {
 	
 	private int id;
 	private String type;
-	private String ideology;
-	
+	private String ideology;	
 	private List <Animal_Shelter> animal_shelter = new ArrayList <>();
 	
 	public int getId() {

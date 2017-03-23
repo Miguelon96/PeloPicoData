@@ -10,9 +10,9 @@ public class Location implements Serializable {
 	private int id;
 	private Float size;
 	private String name;
-	
 	private List <Population> population = new ArrayList <>();
-	
+	private List <Habitat> habitat = new ArrayList <>();
+
 	public int getId() {
 		return id;
 	}
@@ -30,6 +30,20 @@ public class Location implements Serializable {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public List<Population> getPopulation() {
+		return population;
+	}
+	public void setPopulation(List<Population> population) {
+		this.population = population;
+	}
+	
+	public List<Habitat> getHabitat() {
+		return habitat;
+	}
+	public void setHabitat(List<Habitat> habitat) {
+		this.habitat = habitat;
 	}
 	@Override
 	public int hashCode() {

@@ -10,8 +10,8 @@ public class Population implements Serializable {
 	private int number;
 	private String gender;
 	private int age;
-	
-	private String location;
+	private Location location;
+	private Endangered_Species endangered_species;
 	
 	public int getId() {
 		return id;
@@ -36,6 +36,19 @@ public class Population implements Serializable {
 	}
 	public void setAge(int age) {
 		this.age = age;
+	}
+	
+	public Location getLocation() {
+		return location;
+	}
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+	public Endangered_Species getEndangered_species() {
+		return endangered_species;
+	}
+	public void setEndangered_species(Endangered_Species endangered_species) {
+		this.endangered_species = endangered_species;
 	}
 	@Override
 	public int hashCode() {

@@ -12,6 +12,11 @@ public class Habitat implements Serializable {
 	private int id;
 	private String name;
 	private String medium;
+	private List <Location> location = new ArrayList <>();
+	private List <Endangered_Species> endangered_species = new ArrayList <>();
+
+
+	
 	public int getId() {
 		return id;
 	}
@@ -29,6 +34,19 @@ public class Habitat implements Serializable {
 	}
 	public void setMedium(String medium) {
 		this.medium = medium;
+	}
+	
+	public List<Location> getLocation() {
+		return location;
+	}
+	public void setLocation(List<Location> location) {
+		this.location = location;
+	}
+	public List<Endangered_Species> getEndangered_species() {
+		return endangered_species;
+	}
+	public void setEndangered_species(List<Endangered_Species> endangered_species) {
+		this.endangered_species = endangered_species;
 	}
 	@Override
 	public int hashCode() {

@@ -11,10 +11,14 @@ public class Endangered_Species implements Serializable {
 	private String name;
 	private String taxonomy;
 	private String diet;
-	private String reproduction;
-	
+	private String reproduction;	
 	private List <Population> population = new ArrayList <>();
-	private Integer Population;  
+	private List <Habitat> habitat = new ArrayList <>();
+	private List <Animal_Shelter> animal_shelter = new ArrayList <>();
+	private List <Danger> danger = new ArrayList <>();
+
+
+
 	
 	//CONSTRUCTORS
 		public Endangered_Species(){
@@ -61,6 +65,46 @@ public class Endangered_Species implements Serializable {
 		public void setReproduction(String reproduction) {
 			this.reproduction = reproduction;
 		}
+		
+		public List<Population> getPopulation() {
+			return population;
+		}
+
+
+		public void setPopulation(List<Population> population) {
+			this.population = population;
+		}
+
+
+		public List<Habitat> getHabitat() {
+			return habitat;
+		}
+
+
+		public void setHabitat(List<Habitat> habitat) {
+			this.habitat = habitat;
+		}
+
+
+		public List<Animal_Shelter> getAnimal_shelter() {
+			return animal_shelter;
+		}
+
+
+		public void setAnimal_shelter(List<Animal_Shelter> animal_shelter) {
+			this.animal_shelter = animal_shelter;
+		}
+
+
+		public List<Danger> getDanger() {
+			return danger;
+		}
+
+
+		public void setDanger(List<Danger> danger) {
+			this.danger = danger;
+		}
+
 
 		@Override
 		public int hashCode() {

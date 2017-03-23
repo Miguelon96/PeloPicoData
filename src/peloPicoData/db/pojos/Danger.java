@@ -10,7 +10,8 @@ public class Danger implements Serializable {
 	private int id;
 	private String nature_danger;
 	private String magnitude;
-	
+	private List <Endangered_Species> endangered_species = new ArrayList <>();
+
 	
 	public int getId() {
 		return id;
@@ -31,6 +32,12 @@ public class Danger implements Serializable {
 		this.magnitude = magnitude;
 	}
 	
+	public List<Endangered_Species> getEndangered_species() {
+		return endangered_species;
+	}
+	public void setEndangered_species(List<Endangered_Species> endangered_species) {
+		this.endangered_species = endangered_species;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
