@@ -133,8 +133,112 @@ public class SQLInsert {
 
 			// Insert new record: begin
 			Statement stmt = c.createStatement();
-			String sql = "INSERT INTO departments (type, magnitude) "
+			String sql = "INSERT INTO departments (type, ideology) "
 					+ "VALUES ('" + type + "', '" + ideology	+ "');";
+			stmt.executeUpdate(sql);
+			stmt.close();
+			System.out.println("Department info processed");
+			System.out.println("Records inserted.");
+			// Insert new record: end
+
+			// Close database connection
+			c.close();
+			System.out.println("Database connection closed.");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	public static void insertHabitat(){
+		try {
+			// Open database connection
+			Class.forName("org.sqlite.JDBC");
+			Connection c = DriverManager.getConnection("jdbc:sqlite:./db/company.db");
+			c.createStatement().execute("PRAGMA foreign_keys=ON");
+			System.out.println("Database connection opened.");
+
+			// Get the employee info from the command prompt
+			System.out.println("Please, input the department info:");
+			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+			System.out.print("name: ");
+			String name = reader.readLine();
+			System.out.print("medium: ");
+			String medium = reader.readLine();
+
+			// Insert new record: begin
+			Statement stmt = c.createStatement();
+			String sql = "INSERT INTO departments (name, medium) "
+					+ "VALUES ('" + name + "', '" + medium	+ "');";
+			stmt.executeUpdate(sql);
+			stmt.close();
+			System.out.println("Department info processed");
+			System.out.println("Records inserted.");
+			// Insert new record: end
+
+			// Close database connection
+			c.close();
+			System.out.println("Database connection closed.");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	public static void insertLocation(){
+		try {
+			// Open database connection
+			Class.forName("org.sqlite.JDBC");
+			Connection c = DriverManager.getConnection("jdbc:sqlite:./db/company.db");
+			c.createStatement().execute("PRAGMA foreign_keys=ON");
+			System.out.println("Database connection opened.");
+
+			// Get the employee info from the command prompt
+			System.out.println("Please, input the department info:");
+			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+			System.out.print("name: ");
+			float size = Float.parseFloat(reader.readLine());
+			System.out.print("name: ");
+			String name = reader.readLine();
+
+			// Insert new record: begin
+			Statement stmt = c.createStatement();
+			String sql = "INSERT INTO departments (size, name) "
+					+ "VALUES ('" + size + "', '" + name	+ "');";
+			stmt.executeUpdate(sql);
+			stmt.close();
+			System.out.println("Department info processed");
+			System.out.println("Records inserted.");
+			// Insert new record: end
+
+			// Close database connection
+			c.close();
+			System.out.println("Database connection closed.");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	public static void insertPopulation(){
+		try {
+			// Open database connection
+			Class.forName("org.sqlite.JDBC");
+			Connection c = DriverManager.getConnection("jdbc:sqlite:./db/company.db");
+			c.createStatement().execute("PRAGMA foreign_keys=ON");
+			System.out.println("Database connection opened.");
+
+			// Get the employee info from the command prompt
+			System.out.println("Please, input the department info:");
+			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+			System.out.print("number: ");
+			int number = Integer.parseInt(reader.readLine());
+			System.out.print("gender: ");
+			String gender = reader.readLine();
+			System.out.print("age: ");
+			int age = Integer.parseInt(reader.readLine());
+
+			// Insert new record: begin
+			Statement stmt = c.createStatement();
+			String sql = "INSERT INTO departments (number, gender, age) "
+					+ "VALUES ('" + number + "', '" + gender	+ "', '" + age	+ "');";
 			stmt.executeUpdate(sql);
 			stmt.close();
 			System.out.println("Department info processed");
