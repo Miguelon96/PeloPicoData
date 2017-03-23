@@ -5,7 +5,6 @@ import java.io.Serializable;
 
 public class Endangered_Species implements Serializable {
 
-	
 	//ATRIBUTES
 	private int id;
 	private String name;

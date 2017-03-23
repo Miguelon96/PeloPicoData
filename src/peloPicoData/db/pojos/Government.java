@@ -6,7 +6,6 @@ import java.io.Serializable;
 public class Government implements Serializable {
 
 	
-	
 	private int id;
 	private String type;
 	private String ideology;	

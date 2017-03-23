@@ -6,7 +6,6 @@ import java.io.Serializable;
 public class Animal_Shelter implements Serializable {
 
 	
-	
 	private int id;
 	private String resources;
 	private Float capital;

@@ -86,6 +86,7 @@ public class SQL_Create {
 			stmt7.executeUpdate(sql7);
 			stmt7.close();
 			
+			
 			//Eigth Table
 			Statement stmt8 = c.createStatement();
 			String sql8 = "CREATE TABLE loc-hab "

@@ -5,7 +5,6 @@ import java.io.Serializable;
 
 public class Population implements Serializable {
 
-	
 	private int id;
 	private int number;
 	private String gender;

@@ -4,7 +4,6 @@ import java.util.*;
 import java.io.Serializable;
 
 public class Danger implements Serializable {
-
 	
 	
 	private int id;
