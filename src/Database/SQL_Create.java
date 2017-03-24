@@ -84,10 +84,9 @@ public class SQL_Create {
 					   + " name     TEXT     NOT NULL, "
 					   + " size  FLOAT  	NOT NULL)";
 			stmt7.executeUpdate(sql7);
-			stmt7.close();
+			stmt7.close();		
 			
-			
-			//Eigth Table
+			//Eight Table
 			Statement stmt8 = c.createStatement();
 			String sql8 = "CREATE TABLE loc-hab "
 					   + "(loc_id     INTEGER  REFERENCES location(id) ON UPDATE CASCADE ON DELETE SET NULL,"

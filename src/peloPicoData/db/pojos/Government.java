@@ -6,6 +6,10 @@ import java.io.Serializable;
 public class Government implements Serializable {
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4432830933419540890L;
 	private int id;
 	private String type;
 	private String ideology;	
@@ -28,6 +32,13 @@ public class Government implements Serializable {
 	}
 	public void setIdeology(String ideology) {
 		this.ideology = ideology;
+	}
+	
+	public List<Animal_Shelter> getAnimal_shelter() {
+		return animal_shelter;
+	}
+	public void setAnimal_shelter(List<Animal_Shelter> animal_shelter) {
+		this.animal_shelter = animal_shelter;
 	}
 	@Override
 	public int hashCode() {

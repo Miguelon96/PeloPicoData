@@ -6,6 +6,10 @@ import java.io.Serializable;
 public class Danger implements Serializable {
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1662524910422193375L;
 	private int id;
 	private String nature_danger;
 	private String magnitude;

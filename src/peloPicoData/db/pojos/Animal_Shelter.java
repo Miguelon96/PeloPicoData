@@ -6,6 +6,10 @@ import java.io.Serializable;
 public class Animal_Shelter implements Serializable {
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5982998710194121392L;
 	private int id;
 	private String resources;
 	private Float capital;
