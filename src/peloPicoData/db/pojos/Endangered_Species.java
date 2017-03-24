@@ -20,8 +20,7 @@ public class Endangered_Species implements Serializable {
 	private List <Animal_Shelter> animal_shelter = new ArrayList <>();
 	private List <Danger> danger = new ArrayList <>();
 
-
-
+ 
 		public Endangered_Species(){
 			super();
 		}
