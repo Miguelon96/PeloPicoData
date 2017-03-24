@@ -10,6 +10,7 @@ public class Government implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 4432830933419540890L;
+	
 	private int id;
 	private String type;
 	private String ideology;	

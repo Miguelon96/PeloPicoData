@@ -10,6 +10,7 @@ public class Location implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 6326067513915117186L;
+	
 	private int id;
 	private Float size;
 	private String name;

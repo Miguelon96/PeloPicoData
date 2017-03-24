@@ -11,6 +11,7 @@ public class Habitat implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 851376603424971984L;
+	
 	private int id;
 	private String name;
 	private String medium;

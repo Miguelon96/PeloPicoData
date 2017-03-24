@@ -8,6 +8,7 @@ public class Population implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 7876629826161205353L;
+	
 	private int id;
 	private int number;
 	private String gender;

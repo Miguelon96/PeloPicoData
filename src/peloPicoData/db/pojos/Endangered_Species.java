@@ -9,7 +9,7 @@ public class Endangered_Species implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 3591284765705226686L;
-	//ATRIBUTES
+	
 	private int id;
 	private String name;
 	private String taxonomy;
@@ -22,8 +22,6 @@ public class Endangered_Species implements Serializable {
 
 
 
-	
-	//CONSTRUCTORS
 		public Endangered_Species(){
 			super();
 		}
