@@ -4,34 +4,59 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
+
+import peloPicoData.db.pojos.*;
 
 public class SQLInsert {
 
+	private static Connection c;
 	
-	public static void insertAnimalShelter(){
+	private static void printGovernment() throws SQLException {
+	
+		Statement stmt = c.createStatement();
+		String sql = "SELECT * FROM government";
+		ResultSet rs = stmt.executeQuery(sql);
+		while (rs.next()) {
+			int id = rs.getInt("id");
+			String type = rs.getString("type");
+			String ideology = rs.getString("ideology");
+			Government government = new Government(id, type, ideology);
+			System.out.println(government);
+		}
+		rs.close();
+		stmt.close();
+	}
+	
+	public static void insertAnimalShelter(Connection c){
 		try {
 			// Open database connection
 			Class.forName("org.sqlite.JDBC");
-			Connection c = DriverManager.getConnection("jdbc:sqlite:./db/company.db");
-			c.createStatement().execute("PRAGMA foreign_keys=ON");
+		//	Connection c = DriverManager.getConnection("jdbc:sqlite:./db/company.db");
+		//	c.createStatement().execute("PRAGMA foreign_keys=ON");
 			System.out.println("Database connection opened.");
 
 			// Get the employee info from the command prompt
-			System.out.println("Please, input the department info:");
+			System.out.println("Please, input the Animal Shelter information:");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			System.out.print("Resources: ");
 			String resources = reader.readLine();
 			System.out.print("Capital: ");
 			float capital = Float.parseFloat(reader.readLine());
+			System.out.print("Choose its government, type its ID: ");
+			printGovernment();
+			int gover_id = Integer.parseInt(reader.readLine());
 
 			// Insert new record: begin
 			Statement stmt = c.createStatement();
-			String sql = "INSERT INTO departments (resources, capital) "
-					+ "VALUES ('" + resources + "', '" + capital	+ "');";
+			String sql = "INSERT INTO animal_shelter (resources, capital, gover_id) "
+					+ "VALUES ('" + resources + "', '" + capital	+  "', '" + gover_id +"')";
 			stmt.executeUpdate(sql);
 			stmt.close();
-			System.out.println("Department info processed");
+			System.out.println("Animal Shelter information has been processed");
 			System.out.println("Records inserted.");
 			// Insert new record: end
 
@@ -61,7 +86,7 @@ public class SQLInsert {
 
 			// Insert new record: begin
 			Statement stmt = c.createStatement();
-			String sql = "INSERT INTO departments (Nature of Danger, magnitude) "
+			String sql = "INSERT INTO danger (Nature of Danger, magnitude) "
 					+ "VALUES ('" + nature_danger + "', '" + magnitude	+ "');";
 			stmt.executeUpdate(sql);
 			stmt.close();
@@ -99,7 +124,7 @@ public class SQLInsert {
 
 			// Insert new record: begin
 			Statement stmt = c.createStatement();
-			String sql = "INSERT INTO departments (name, taxonomy, diet, reproduction) "
+			String sql = "INSERT INTO endangered_species (name, taxonomy, diet, reproduction) "
 					+ "VALUES ('" + name + "', '" + taxonomy	+ "', '" + diet	+ "', '" + reproduction	+ "');";
 			stmt.executeUpdate(sql);
 			stmt.close();
@@ -133,7 +158,7 @@ public class SQLInsert {
 
 			// Insert new record: begin
 			Statement stmt = c.createStatement();
-			String sql = "INSERT INTO departments (type, ideology) "
+			String sql = "INSERT INTO government (type, ideology) "
 					+ "VALUES ('" + type + "', '" + ideology	+ "');";
 			stmt.executeUpdate(sql);
 			stmt.close();
@@ -167,7 +192,7 @@ public class SQLInsert {
 
 			// Insert new record: begin
 			Statement stmt = c.createStatement();
-			String sql = "INSERT INTO departments (name, medium) "
+			String sql = "INSERT INTO habitat (name, medium) "
 					+ "VALUES ('" + name + "', '" + medium	+ "');";
 			stmt.executeUpdate(sql);
 			stmt.close();
@@ -201,7 +226,7 @@ public class SQLInsert {
 
 			// Insert new record: begin
 			Statement stmt = c.createStatement();
-			String sql = "INSERT INTO departments (size, name) "
+			String sql = "INSERT INTO location (size, name) "
 					+ "VALUES ('" + size + "', '" + name	+ "');";
 			stmt.executeUpdate(sql);
 			stmt.close();

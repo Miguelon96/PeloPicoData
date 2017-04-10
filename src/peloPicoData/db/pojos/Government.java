@@ -16,6 +16,14 @@ public class Government implements Serializable {
 	private String ideology;	
 	private List <Animal_Shelter> animal_shelter = new ArrayList <>();
 	
+	
+	
+	public Government(int id, String type, String ideology) {
+		super();
+		this.id = id;
+		this.type = type;
+		this.ideology = ideology;
+	}
 	public int getId() {
 		return id;
 	}
