@@ -12,10 +12,40 @@ public class Animal_Shelter implements Serializable {
 	private static final long serialVersionUID = 5982998710194121392L;
 	
 	private int id;
+	private String name;
 	private String resources;
 	private Float capital;
 	private Government government;
 	private List <Endangered_Species> endangered_species = new ArrayList <>();
+
+	
+	
+	public Animal_Shelter(int id, String name, String resources, Float capital) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.resources = resources;
+		this.capital = capital;
+	}
+
+
+	public Animal_Shelter(String resources, Float capital, Government government) {
+		super();
+		this.resources = resources;
+		this.capital = capital;
+		this.government = government;
+	}
+	
+	
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 
 	public int getId() {
 		return id;

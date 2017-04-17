@@ -17,6 +17,14 @@ public class Location implements Serializable {
 	private List <Population> population = new ArrayList <>();
 	private List <Habitat> habitat = new ArrayList <>();
 
+	
+	
+	public Location(int id, Float size, String name) {
+		super();
+		this.id = id;
+		this.size = size;
+		this.name = name;
+	}
 	public int getId() {
 		return id;
 	}

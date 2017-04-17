@@ -5,20 +5,14 @@ import java.sql.DriverManager;
 
 public class DBManager {
 	
+    private Connection c;
 	
-	private Connection c;
-
-	public DBManager(Connection c1){
-		
-		Connection c = c1;
-
-	}
 	
-	public void connect(String args[]){
+	public Connection connect(){
 	try {
 		// Open database connection
 		Class.forName("org.sqlite.JDBC");
-		c = DriverManager.getConnection("jdbc:sqlite:./db/PeloPicoData.db");
+		c = DriverManager.getConnection("jdbc:sqlite:./PeloPicoData.db");
 		c.createStatement().execute("PRAGMA foreign_keys=ON");
 		System.out.println("Database connection opened.");
 			
@@ -26,10 +20,10 @@ public class DBManager {
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
-	
+	return c;
 }
 
-public void disconnect(String args[]){
+public void disconnect(){
 	try {
 	
 		// Close database connection			
@@ -42,27 +36,56 @@ public void disconnect(String args[]){
 	
 }
      
-   public void createCall(){
+   public void createCall(Connection c){
    
-	   SQL_Create table = new SQL_Create(); 
-	   
+	   SQL_Create table = new SQL_Create(c); 
+	   table.callCreate();
    }
    
-   public void deleteCall(){
+   public void dropCall(Connection c){
 	   
-	   SQL_Create deleteobj = new SQL_Create(); 
-	   
+	   SQL_Drop droping = new SQL_Drop(c); 
+	   droping.dropTables();
    }
    
-   
-   public void insertCcall(){
+   public void dropAllCall(Connection c){
 	   
-	   SQL_Create insertobj = new SQL_Create(); 
-	   
+	   SQL_Drop droping = new SQL_Drop(c); 
+	   droping.dropAllTables();
    }
    
+   public void insert(Connection c){
+	   
+	    SQL_Insert insert = new SQL_Insert(c);
+		insert.callInsert();
+   }
    
+   public void delete(Connection c){
+	   
+	    SQL_Delete delete = new SQL_Delete(c);
+		delete.callDelete();
+  }
+     
+   
+   public void select(Connection c){
+	   
+	    SQL_Select select = new SQL_Select(c);
+		System.out.println("Introduce danger:\n");
+		select.selectDanger();
+ }
+   
+   public void search(Connection c){
+	   
+	    SQL_Search search = new SQL_Search(c);
+		search.search();
+ }
+   
+   public void update(Connection c){
+	   SQL_Update update = new SQL_Update(c);
+	   update.callUpdate();
+   }
    
    }
+
 
 

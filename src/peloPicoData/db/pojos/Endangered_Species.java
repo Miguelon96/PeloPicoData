@@ -19,8 +19,18 @@ public class Endangered_Species implements Serializable {
 	private List <Habitat> habitat = new ArrayList <>();
 	private List <Animal_Shelter> animal_shelter = new ArrayList <>();
 	private List <Danger> danger = new ArrayList <>();
+	
+	
+		public Endangered_Species(int id, String name, String taxonomy, String diet, String reproduction) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.taxonomy = taxonomy;
+		this.diet = diet;
+		this.reproduction = reproduction;
+	}
 
- 
+
 		public Endangered_Species(){
 			super();
 		}

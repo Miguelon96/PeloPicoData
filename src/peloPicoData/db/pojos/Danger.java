@@ -12,11 +12,25 @@ public class Danger implements Serializable {
 	private static final long serialVersionUID = 1662524910422193375L;
 	
 	private int id;
+	private String name;
 	private String nature_danger;
 	private String magnitude;
 	private List <Endangered_Species> endangered_species = new ArrayList <>();
 
 	
+	public Danger(int id, String name, String nature_danger, String magnitude) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.nature_danger = nature_danger;
+		this.magnitude = magnitude;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public int getId() {
 		return id;
 	}

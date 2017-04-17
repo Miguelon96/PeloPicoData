@@ -1,18 +1,22 @@
 package Database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.*;
 
 public class SQL_Create {
+	
+	Connection c;
+	
+	
+	
+	public SQL_Create(Connection c) {
+		super();
+		this.c = c;
+	}
 
-	public static void main(String args[]) {
+
+
+	public void callCreate() {
 		try {
-			// Open database connection
-			Class.forName("org.sqlite.JDBC");
-			Connection c = DriverManager.getConnection("jdbc:sqlite:./db/company.db");
-			c.createStatement().execute("PRAGMA foreign_keys=ON");
-			System.out.println("Database connection opened.");
 			
 			// Create tables: begin:
 			
@@ -20,6 +24,7 @@ public class SQL_Create {
 			Statement stmt1 = c.createStatement();
 			String sql1 = "CREATE TABLE animal_shelter "
 					   + "(id       INTEGER  PRIMARY KEY AUTOINCREMENT,"
+					   + "name		TEXT NOT NULL, "	 
 					   + "resources     TEXT     NOT NULL, "
 					   + "capital  FLOAT	 NOT NULL, "
 					   + "gover_id	INTEGER REFERENCES government(id) ON UPDATE CASCADE ON DELETE SET NULL)";
@@ -63,6 +68,7 @@ public class SQL_Create {
 			Statement stmt5 = c.createStatement();
 			String sql5 = "CREATE TABLE danger "
 					   + "(id       INTEGER  PRIMARY KEY AUTOINCREMENT,"
+					   + "name		TEXT 	NOT NULL, "	
 					   + " nature_danger     TEXT     NOT NULL, "
 					   + " magnitude  TEXT  	NOT NULL)";
 			stmt5.executeUpdate(sql5);
@@ -88,7 +94,7 @@ public class SQL_Create {
 			
 			//Eight Table
 			Statement stmt8 = c.createStatement();
-			String sql8 = "CREATE TABLE loc-hab "
+			String sql8 = "CREATE TABLE loc_hab "
 					   + "(loc_id     INTEGER  REFERENCES location(id) ON UPDATE CASCADE ON DELETE SET NULL,"
 					   + " hab_id   INTEGER  REFERENCES habitat(id) ON UPDATE CASCADE ON DELETE SET NULL,"
 					   + " PRIMARY KEY (loc_id,hab_id))";
@@ -98,7 +104,7 @@ public class SQL_Create {
 			
 			//Nine Table
 			Statement stmt9 = c.createStatement();
-			String sql9 = "CREATE TABLE end-anim "
+			String sql9 = "CREATE TABLE end_anim "
 					   + "(endan_id     INTEGER  REFERENCES endangered_species(id) ON UPDATE CASCADE ON DELETE SET NULL,"
 					   + " anims_id   INTEGER  REFERENCES animal_shelter(id) ON UPDATE CASCADE ON DELETE SET NULL,"
 					   + " PRIMARY KEY (endan_id,anims_id))";
@@ -108,7 +114,7 @@ public class SQL_Create {
 			
 			//Ten Table
 			Statement stmt10 = c.createStatement();
-			String sql10 = "CREATE TABLE end-hab "
+			String sql10 = "CREATE TABLE end_hab "
 					   + "(endan_id     INTEGER  REFERENCES endangered_species(id) ON UPDATE CASCADE ON DELETE SET NULL,"
 					   + " hab_id   INTEGER  REFERENCES habitat(id) ON UPDATE CASCADE ON DELETE SET NULL,"
 					   + " PRIMARY KEY (endan_id,hab_id))";
@@ -118,35 +124,41 @@ public class SQL_Create {
 			
 			//11 Table
 			Statement stmt11 = c.createStatement();
-			String sql11 = "CREATE TABLE dang-end "
+			String sql11 = "CREATE TABLE dang_end "
 					   + "(dan_id     INTEGER  REFERENCES location(id) ON UPDATE CASCADE ON DELETE SET NULL,"
 					   + " endan_id   INTEGER  REFERENCES habitat(id) ON UPDATE CASCADE ON DELETE SET NULL,"
 					   + " PRIMARY KEY (dan_id,endan_id))";
 			stmt11.executeUpdate(sql11);
 			stmt11.close();
 			System.out.println("Tables created.");
-			/*
-			Statement stmt6 = c.createStatement();
-			String sql6 = "CREATE TABLE authors "
-					   + "(report_id     INTEGER  REFERENCES reports(id) ON UPDATE CASCADE ON DELETE SET NULL,"
-					   + " employee_id   INTEGER  REFERENCES employees(id) ON UPDATE CASCADE ON DELETE SET NULL,"
-					   + " PRIMARY KEY (report_id,employee_id))";
-			stmt6.executeUpdate(sql6);
-			stmt6.close();
-			System.out.println("Tables created.");
+			
+			
 			
 			Statement stmtSeq = c.createStatement();
-			String sqlSeq = "INSERT INTO sqlite_sequence (name, seq) VALUES ('departments', 1)";
+			String sqlSeq = "INSERT INTO sqlite_sequence (name, seq) VALUES ('animal_shelter', 1)";
 			stmtSeq.executeUpdate(sqlSeq);
-			sqlSeq = "INSERT INTO sqlite_sequence (name, seq) VALUES ('employees', 1)";
+			sqlSeq = "INSERT INTO sqlite_sequence (name, seq) VALUES ('endangered_species', 1)";
 			stmtSeq.executeUpdate(sqlSeq);
-			sqlSeq = "INSERT INTO sqlite_sequence (name, seq) VALUES ('reports', 1)";
+			sqlSeq = "INSERT INTO sqlite_sequence (name, seq) VALUES ('population', 1)";
+			stmtSeq.executeUpdate(sqlSeq);
+			sqlSeq = "INSERT INTO sqlite_sequence (name, seq) VALUES ('government', 1)";
+			stmtSeq.executeUpdate(sqlSeq);
+			sqlSeq = "INSERT INTO sqlite_sequence (name, seq) VALUES ('danger', 1)";
+			stmtSeq.executeUpdate(sqlSeq);
+			sqlSeq = "INSERT INTO sqlite_sequence (name, seq) VALUES ('habitat', 1)";
+			stmtSeq.executeUpdate(sqlSeq);
+			sqlSeq = "INSERT INTO sqlite_sequence (name, seq) VALUES ('location', 1)";
+			stmtSeq.executeUpdate(sqlSeq);
+			sqlSeq = "INSERT INTO sqlite_sequence (name, seq) VALUES ('loc-hab', 1)";
+			stmtSeq.executeUpdate(sqlSeq);
+			sqlSeq = "INSERT INTO sqlite_sequence (name, seq) VALUES ('end-anim', 1)";
+			stmtSeq.executeUpdate(sqlSeq);
+			sqlSeq = "INSERT INTO sqlite_sequence (name, seq) VALUES ('end-hab', 1)";
+			stmtSeq.executeUpdate(sqlSeq);
+			sqlSeq = "INSERT INTO sqlite_sequence (name, seq) VALUES ('dang-end', 1)";
 			stmtSeq.executeUpdate(sqlSeq);
 			stmtSeq.close();
 			
-			
-			c.close();
-			System.out.println("Database connection closed.");*/
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

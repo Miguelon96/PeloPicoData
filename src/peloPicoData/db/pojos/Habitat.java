@@ -20,6 +20,12 @@ public class Habitat implements Serializable {
 
 
 	
+	public Habitat(int id, String name, String medium) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.medium = medium;
+	}
 	public int getId() {
 		return id;
 	}

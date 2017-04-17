@@ -16,6 +16,15 @@ public class Population implements Serializable {
 	private Location location;
 	private Endangered_Species endangered_species;
 	
+	
+	
+	public Population(int id, int number, String gender, int age) {
+		super();
+		this.id = id;
+		this.number = number;
+		this.gender = gender;
+		this.age = age;
+	}
 	public int getId() {
 		return id;
 	}
