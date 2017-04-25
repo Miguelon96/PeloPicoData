@@ -10,7 +10,7 @@ import peloPicoData.db.pojos.*;
 public class SQL_Select {
 	
 	private Connection c;
-	
+	Print print = new Print();
 		
 	public SQL_Select(Connection c) {
 		super();
@@ -25,17 +25,16 @@ public class SQL_Select {
 			Statement stmt = c.createStatement();
 			String sql = "SELECT * FROM Danger";
 			ResultSet rs = stmt.executeQuery(sql);//Set of results
-			while (rs.next()) {//Return TRUE if there are more elements, so, while TRUE it moves to the next element
+			while (rs.next()) {
 				int id = rs.getInt("id");
 				String name = rs.getString("name");
 				String nature_danger = rs.getString("nature danger");
 				String magnitude = rs.getString("magnitude");
-				Danger d = new Danger(id,name,nature_danger, magnitude);
-				System.out.println(d);
+				Danger danger = new Danger(id,name,nature_danger, magnitude);
+				print.printDanger(danger);
 			}
 			rs.close();
 			stmt.close();
-			System.out.println("Search finished.");
 			// Retrieve data: end
 			
 
@@ -43,4 +42,6 @@ public class SQL_Select {
 			e.printStackTrace();
 		}
 	}
+	
+	
 }

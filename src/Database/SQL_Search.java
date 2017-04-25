@@ -12,7 +12,7 @@ public class SQL_Search {
 	Connection c;
 	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 	String searchName;
-	
+	Print print = new Print();
 	public SQL_Search(Connection c) {
 		super();
 		this.c = c;
@@ -21,9 +21,7 @@ public class SQL_Search {
 	public void search(){
 		try {
 			
-		System.out.print("What do you want to search? ");
-		System.out.print("\n1.Animal Shelter \n2.Endangered Species \n3.Population "
-						+ "\n4.Government \n5.Danger \n6.Habitat \n7.Location \nOption: ");
+		print.printOpcion(4);
 		int search = Integer.parseInt(reader.readLine());
 		
 		switch(search){
@@ -152,8 +150,7 @@ public void searchDanger(){
 			String magnitude = rs.getString("magnitude"); 
 			
 			Danger danger = new Danger(id, name, nature_danger, magnitude);
-			System.out.println(danger);
-			
+			print.printDanger(danger);
 			}
 		
 		rs.close();

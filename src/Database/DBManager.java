@@ -14,7 +14,7 @@ public class DBManager {
 		Class.forName("org.sqlite.JDBC");
 		c = DriverManager.getConnection("jdbc:sqlite:./PeloPicoData.db");
 		c.createStatement().execute("PRAGMA foreign_keys=ON");
-		System.out.println("Database connection opened.");
+		System.out.println("Database opening...");
 			
 
 	} catch (Exception e) {
@@ -42,12 +42,6 @@ public void disconnect(){
 	   table.callCreate();
    }
    
-   public void dropCall(Connection c){
-	   
-	   SQL_Drop droping = new SQL_Drop(c); 
-	   droping.dropTables();
-   }
-   
    public void dropAllCall(Connection c){
 	   
 	   SQL_Drop droping = new SQL_Drop(c); 
@@ -64,6 +58,7 @@ public void disconnect(){
 	   
 	    SQL_Delete delete = new SQL_Delete(c);
 		delete.callDelete();
+		
   }
      
    

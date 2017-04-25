@@ -18,7 +18,7 @@ public class Main {
 
 	
 	public static void main(String args[]) {
-
+		Print print = new Print();
 		try {
 			String decision;
 			int option;
@@ -36,8 +36,7 @@ public class Main {
 			}
 			while(cont == 1){
 			System.out.println("\nNow, what you want to do?");
-			System.out.println("\n1.Insert \n2.Select \n3.Delete \n4.Drop \n5.Search \n6.Update"
-					+ "\n7.Close Database \nOption:");
+			print.printOpcion(6);
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			option = Integer.parseInt(reader.readLine());
 			
@@ -47,13 +46,12 @@ public class Main {
 			case 2: manager.select(c);
 	  				break;
 			case 3: manager.delete(c);
-			case 4: manager.dropCall(c);
 					break;
-			case 5: manager.search(c);
+			case 4: manager.search(c);
 		   			break;
-			case 6: manager.update(c);
+			case 5: manager.update(c);
 					break;
-			case 7: cont = 0;
+			case 6: cont = 0;
 		   			break;
 			}
 			}

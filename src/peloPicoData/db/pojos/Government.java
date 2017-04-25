@@ -70,4 +70,8 @@ public class Government implements Serializable {
 		return true;
 	}
 	
+	public String toString(){
+		return "Id: "+id+ "\nType: "+type+ "\nIdeologyr: "+ideology;
+	}
+	
 }

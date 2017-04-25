@@ -60,7 +60,6 @@ public class SQL_Drop {
 			String sql11 = "DROP TABLE dang_end";
 			stmt11.executeUpdate(sql11);
 			stmt11.close();
-			System.out.println("Tables removed.");
 			// Drop tables: end
 			
 		} catch (Exception e) {
@@ -69,7 +68,7 @@ public class SQL_Drop {
 	}
 	
 	
-	public void dropTables() {
+	/*public void dropTables() {
 		try {
 			
 			System.out.println("Which table you want to drop?");
@@ -144,6 +143,6 @@ public class SQL_Drop {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 	
 }

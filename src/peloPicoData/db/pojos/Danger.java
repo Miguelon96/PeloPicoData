@@ -76,6 +76,9 @@ public class Danger implements Serializable {
 			return false;
 		return true;
 	}
-	
+
+	public String toString(){
+		return "Id: "+id+ "\nName: "+name+ "\nNature of Danger: "+nature_danger+"\nMagnitude: "+magnitude;
+	}
 		
 }

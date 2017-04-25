@@ -137,6 +137,10 @@ public class Endangered_Species implements Serializable {
 				return false;
 			return true;
 		}
+		
+		public String toString(){
+			return "Id: "+id+ "\nName: "+name+ "\nTaxonomy: "+taxonomy+"\nDiet: "+diet+"\nReproduction";
+		}
 
     
 		

@@ -20,7 +20,7 @@ public class SQL_Insert {
 	int id_habitat=0;
 	int id_popu=0;
 	int id_loc=0;
-	 
+	Print print = new Print();
 	public SQL_Insert(Connection c) {
 		super();
 		this.c = c;
@@ -80,9 +80,7 @@ public class SQL_Insert {
 	public void callInsert(){
 		try {
 		
-			System.out.println("Choose in which table you want to insert data:"
-					+ "\n1.Animal Shelter \n2.Endangered Species \n3.Population "
-					+ "\n4.Government \n5.Danger \n6.Habitat \n7.Location \nOption: ");
+			print.printOpcion(1);
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			int option = Integer.parseInt(reader.readLine());
 			
@@ -149,7 +147,6 @@ public class SQL_Insert {
 		try {
 
 			id_danger ++;
-			
 			// Get the dangers info from the command prompt
 			System.out.println("Please, input the Dangers information:");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -169,8 +166,7 @@ public class SQL_Insert {
 			stmt.executeUpdate(sql);
 			stmt.close();
 			System.out.println("Dangers info processed");
-			System.out.println("Records inserted.");
-			// Insert new record: end
+			// Insert new record: end	
 			} catch (Exception e) {
 				e.printStackTrace();
 				}
@@ -203,7 +199,6 @@ public class SQL_Insert {
 			stmt.executeUpdate(sql);
 			stmt.close();
 			System.out.println("Endangered Species info processed");
-			System.out.println("Records inserted.");
 			// Insert new record: end
 
 		} catch (Exception e) {
@@ -233,7 +228,6 @@ public class SQL_Insert {
 			stmt.executeUpdate(sql);
 			stmt.close();
 			System.out.println("Government info processed");
-			System.out.println("Records inserted.");
 			// Insert new record: end
 			
 		} catch (Exception e) {
@@ -263,7 +257,6 @@ public class SQL_Insert {
 			stmt.executeUpdate(sql);
 			stmt.close();
 			System.out.println("Habitat info processed");
-			System.out.println("Records inserted.");
 			// Insert new record: end
 
 		} catch (Exception e) {
@@ -293,7 +286,6 @@ public class SQL_Insert {
 			stmt.executeUpdate(sql);
 			stmt.close();
 			System.out.println("Location info processed");
-			System.out.println("Records inserted.");
 			// Insert new record: end
 
 		} catch (Exception e) {
@@ -332,7 +324,6 @@ public class SQL_Insert {
 			stmt.executeUpdate(sql);
 			stmt.close();
 			System.out.println("Population info processed");
-			System.out.println("Records inserted.");
 			// Insert new record: end
 
 		} catch (Exception e) {

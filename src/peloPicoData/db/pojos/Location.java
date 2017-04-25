@@ -78,5 +78,8 @@ public class Location implements Serializable {
 		return true;
 	}
 	
+	public String toString(){
+		return "Id: "+id+ "\nName: "+name+ "\nSize: "+size;
+	}
 	
 }

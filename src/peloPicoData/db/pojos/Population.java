@@ -83,6 +83,9 @@ public class Population implements Serializable {
 		return true;
 	}
 	
+	public String toString(){
+		return "Id: "+id+ "\nNumber: "+number+ "\nGender: "+gender+"\nAge: "+age;
+	}
 	
 	
 	

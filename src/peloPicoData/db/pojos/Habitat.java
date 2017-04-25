@@ -78,5 +78,8 @@ public class Habitat implements Serializable {
 		return true;
 	}
 	
+	public String toString(){
+		return "Id: "+id+ "\nName: "+name+ "\nMedium: "+medium;
+	}
 	
 }

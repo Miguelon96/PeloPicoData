@@ -100,7 +100,6 @@ public class SQL_Create {
 					   + " PRIMARY KEY (loc_id,hab_id))";
 			stmt8.executeUpdate(sql8);
 			stmt8.close();
-			System.out.println("Tables created.");
 			
 			//Nine Table
 			Statement stmt9 = c.createStatement();
@@ -110,7 +109,6 @@ public class SQL_Create {
 					   + " PRIMARY KEY (endan_id,anims_id))";
 			stmt9.executeUpdate(sql9);
 			stmt9.close();
-			System.out.println("Tables created.");
 			
 			//Ten Table
 			Statement stmt10 = c.createStatement();
@@ -120,7 +118,6 @@ public class SQL_Create {
 					   + " PRIMARY KEY (endan_id,hab_id))";
 			stmt10.executeUpdate(sql10);
 			stmt10.close();
-			System.out.println("Tables created.");
 			
 			//11 Table
 			Statement stmt11 = c.createStatement();
@@ -130,7 +127,6 @@ public class SQL_Create {
 					   + " PRIMARY KEY (dan_id,endan_id))";
 			stmt11.executeUpdate(sql11);
 			stmt11.close();
-			System.out.println("Tables created.");
 			
 			
 			

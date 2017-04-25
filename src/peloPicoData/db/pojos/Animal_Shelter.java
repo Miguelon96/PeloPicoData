@@ -99,7 +99,9 @@ public class Animal_Shelter implements Serializable {
 		return true;
 	}
 
-
+	public String toString(){
+		return "Id: "+id+ "\nName: "+name+ "\nResources: "+resources+"\nCapital: "+capital;
+	}
 
 	
 	

@@ -14,6 +14,7 @@ import peloPicoData.db.pojos.*;
 public class SQL_Update {
 
 	Connection c;
+	Print print = new Print();
 	int id_danger=0;
 	int id_government=0;
 	int id_animshelt=0;
@@ -27,79 +28,11 @@ public class SQL_Update {
 		this.c = c;
 	}
 
-	private void printGovernment() throws SQLException {
-	
-		Statement stmt = c.createStatement();
-		String sql = "SELECT * FROM government";
-		ResultSet rs = stmt.executeQuery(sql);
-		while (rs.next()) {
-			int id = rs.getInt("id");
-			String type = rs.getString("type");
-			String ideology = rs.getString("ideology");
-			Government government = new Government(id, type, ideology);
-			System.out.println(government);
-		}
-		rs.close();
-		stmt.close();
-	}
-	
-	private void printPopulation() throws SQLException {
-		
-		Statement stmt = c.createStatement();
-		String sql = "SELECT * FROM population";
-		ResultSet rs = stmt.executeQuery(sql);
-		while (rs.next()) {
-			int id = rs.getInt("id");
-			int number = rs.getInt("number");
-			String gender = rs.getString("gender");
-			int age = rs.getInt("age");
-			Population population = new Population(id, number, gender,age);
-			System.out.println(population);
-		}
-		rs.close();
-		stmt.close();
-	}
-	
-	private void printEndangeredSpecies() throws SQLException {
-		
-		Statement stmt = c.createStatement();
-		String sql = "SELECT * FROM endangered_species";
-		ResultSet rs = stmt.executeQuery(sql);
-		while (rs.next()) {
-			int id = rs.getInt("id");
-			String name = rs.getString("name");
-			String taxonomy = rs.getString("taxonomy");
-			String diet = rs.getString("diet");
-		    String reproduction = rs.getString("reproduction");
-			Endangered_Species endangered_species = new Endangered_Species(id, name, taxonomy,diet,reproduction);
-			System.out.println(endangered_species);
-		}
-		rs.close();
-		stmt.close();
-	}
-	
-	private void printDangers() throws SQLException{
-		Statement stmt = c.createStatement();
-		String sql = "SELECT * FROM danger";
-		ResultSet rs = stmt.executeQuery(sql);
-		while (rs.next()) {
-			int id = rs.getInt("id");
-			String name = rs.getString("name");
-			String nature_danger = rs.getString("nature_danger");
-			String magnitude = rs.getString("magnitude");
-			Danger danger = new Danger(id, name, nature_danger, magnitude);
-			System.out.println(danger);
-		}
-		rs.close();
-		stmt.close();
-	}
 	
 	public void callUpdate(){
 		try {
 		
-			System.out.println("Choose in which table you want to update data:"
-					+ "\n1.Animal Shelter \n2.Endangered Species \n3.Population "
-					+ "\n4.Government \n5.Danger \n6.Habitat \n7.Location \nOption: ");
+			print.printOpcion(5);
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			int option = Integer.parseInt(reader.readLine());
 			
@@ -142,7 +75,18 @@ public class SQL_Update {
 			System.out.print("Capital: ");
 			float capital = Float.parseFloat(reader.readLine());
 			System.out.print("Choose its government, type its ID: ");
-			printGovernment();
+			Statement stmt = c.createStatement();
+			String sql = "SELECT * FROM government";
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String type = rs.getString("type");
+				String ideology = rs.getString("ideology");
+				Government government = new Government(id, type, ideology);
+				print.printGovernment(government);
+			}
+			rs.close();
+			stmt.close();
 			int gover_id = Integer.parseInt(reader.readLine());
 			
 			Animal_Shelter animshel = new Animal_Shelter(id_animshelt, name, resources,capital);
@@ -168,15 +112,28 @@ public class SQL_Update {
 			// Get the dangers info from the command prompt
 			System.out.println("Please, choose the Dangers you want to modify:");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-			printDangers();
+
+			Statement stmt = c.createStatement();
+			String sql = "SELECT * FROM danger";
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String name = rs.getString("name");
+				String nature_danger = rs.getString("nature_danger");
+				String magnitude = rs.getString("magnitude");
+				Danger danger = new Danger(id, name, nature_danger, magnitude);
+				print.printDanger(danger);
+			}
+			rs.close();
+			stmt.close();
 			System.out.println("Type it ID:");
 			int danger_id = Integer.parseInt(reader.readLine());
 			System.out.println("What you want to modify: \n1.Name \n2.Nature of danger \n3.Magnitude"
-					+ "\nOption::");
+					+ "\n4.Exit\n");
 			int option = Integer.parseInt(reader.readLine());
 			
 			PreparedStatement prep;
-			String sql;
+		//	String sql;
 			
 			switch(option){
 			case 1:
@@ -211,6 +168,8 @@ public class SQL_Update {
 				prep.executeUpdate();
 				System.out.println("Update finished.");
 				// Change a danger magnitude: end
+				break;
+			case 4:
 				break;
 			}
 			
@@ -355,12 +314,33 @@ public class SQL_Update {
 			System.out.print("age: ");
 			int age = Integer.parseInt(reader.readLine());
 			System.out.print("Choose the location of the population, ID: ");
-			printPopulation();
+
+			Statement stmt = c.createStatement();
+			String sql = "SELECT * FROM location";
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				Float size = rs.getFloat("size");
+				String name = rs.getString("name");
+				Location location = new Location(id, size, name);
+				print.printLocation(location);
+		    }
 			int population_id = Integer.parseInt(reader.readLine());
 			System.out.print("Choose the endangered specie, ID: ");
-			printEndangeredSpecies();
-			int endangered_id = Integer.parseInt(reader.readLine());
 
+			String sql1 = "SELECT * FROM endangered_species";
+			ResultSet rs1 = stmt.executeQuery(sql1);
+			while (rs1.next()) {
+				int id = rs1.getInt("id");
+				String name = rs1.getString("name");
+				String taxonomy = rs1.getString("taxonomy");
+				String diet = rs.getString("diet");
+			    String reproduction = rs1.getString("reproduction");
+				Endangered_Species endangeredSpecies = new Endangered_Species(id, name, taxonomy,diet,reproduction);
+				print.printEndangeredSpecies(endangeredSpecies);
+			}			int endangered_id = Integer.parseInt(reader.readLine());
+			rs.close();
+			stmt.close();
 			Population pop = new Population(id_popu,number, gender, age);
 
 			/*String sql = "UPDATE departments SET address=? WHERE id=?";
